@@ -1,0 +1,23 @@
+.area {
+    width: 100%;
+    font-size: 24px;
+    background-color: var(--secondary-color);
+    border: 3px solid var(--primary-color);
+    color: var(--primary-color);
+    font-family: var(--font);
+    border-radius: 25px;
+    text-align: center;
+    outline: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.area p {
+    padding: 12px 0px;
+}
+
+.divisoria {
+    height: 60px;
+    width: 3px;
+    background-color: var(--primary-color);
+}

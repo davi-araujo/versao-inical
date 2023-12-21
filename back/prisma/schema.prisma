@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Aluno {
+  id           Int           @id @default(autoincrement())
+  nome         String
+  email        String        @unique
+  senha        String
+  coin         Int           @default(0)
+  vida         Int           @default(100)
+
+  adversarios  Adversario[]
+}
+
+model Adversario {
+  id         Int        @id @default(autoincrement())
+  nome       String     @unique
+  resultado  Float
+  boss       Boolean    @default(false)
+  aluno      Aluno      @relation(fields: [id_aluno], references: [id])
+  id_aluno   Int
+
+  batalhas   Batalha[]
+  aulas      Aula[]
+  missoes    Missao[]
+}
+
+model Batalha {
+  id             Int         @id @default(autoincrement())
+  nome           String      @unique
+  peso           Int  
+  nota           Float
+
+  adversario     Adversario  @relation(fields: [id_adversario], references: [id])
+  id_adversario  Int
+}
+
+model Aula {
+  id              Int         @id @default(autoincrement())
+  materia         String  
+  horario_inicio  String
+  horario_fim     String
+  dia_semana      String
+
+  adversario      Adversario  @relation(fields: [id_adversario], references: [id])
+  id_adversario   Int
+}
+
+model Missao {
+  id                Int         @id @default(autoincrement())
+  nome              String  
+  feita             Boolean     @default(false)
+  data_de_execucao  DateTime
+  
+  adversario        Adversario  @relation(fields: [id_adversario], references: [id])
+  id_adversario     Int
+}

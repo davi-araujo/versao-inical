@@ -1,0 +1,11 @@
+.button {
+    width: fit-content;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: var(--font);
+    border: none;
+    padding: 4px 12px;
+    text-decoration: none;
+}

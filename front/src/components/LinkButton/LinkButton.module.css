@@ -1,0 +1,10 @@
+.button {
+    width: 100%;
+    font-family: var(--font);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    text-align: center;
+}
